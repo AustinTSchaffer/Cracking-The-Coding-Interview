@@ -4,7 +4,7 @@ import (
 	"strings"
 )
 
-// Trims the whitespace from the input string, and replaces the internal spaces
+// URLIfy trims the whitespace from the input string, and replaces the internal spaces
 // with `"%20"`.
 //
 // The result of this function is not actually URL-safe.

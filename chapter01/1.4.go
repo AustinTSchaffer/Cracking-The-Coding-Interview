@@ -5,7 +5,10 @@ import (
 	"unicode"
 )
 
-/* Returns true if the input string can be rearranged to form a palindrome.
+/*
+
+IsAPermutationOfAPalindrome returns true if the input string can be rearranged
+to form a palindrome.
 
 Palindromes can only be formed if there is 0 or 1 letters that occur and odd
 number of times. If there are 2 or more letters that occur an odd number of
@@ -18,6 +21,7 @@ an odd number of `z`s, then you end up in the following situation:
 
 where you have to fill in `?` with 1 `y` and 1 `z`, resulting in an asymmetric
 string of characters, which opposes the definition of a palindrome.
+
 */
 func IsAPermutationOfAPalindrome(someString string) bool {
 	letters := make(map[rune]int)
