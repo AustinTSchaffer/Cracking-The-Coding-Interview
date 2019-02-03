@@ -142,9 +142,14 @@ since the algorithm is recursive.
 func inPlaceImageRotate(imageSlice [][]Pixel) {
 
 	imageSize := len(imageSlice)
+	maxIndex := imageSize - 1
 
-	for groupNumber := 0; groupNumber < imageSize-1; groupNumber++ {
-		panic("NotImplemented")
+	for groupNumber := 0; groupNumber < maxIndex; groupNumber++ {
+		tmp := imageSlice[0][0+groupNumber]
+		imageSlice[0][0+groupNumber] = imageSlice[maxIndex-groupNumber][0]
+		imageSlice[maxIndex-groupNumber][0] = imageSlice[maxIndex][maxIndex-groupNumber]
+		imageSlice[maxIndex][maxIndex-groupNumber] = imageSlice[0+groupNumber][maxIndex]
+		imageSlice[0+groupNumber][maxIndex] = tmp
 	}
 
 	if imageSize <= 2 {
@@ -155,7 +160,7 @@ func inPlaceImageRotate(imageSlice [][]Pixel) {
 	newImageSlice := make([][]Pixel, newImageSliceSize)
 
 	for i := 0; i < newImageSliceSize; i++ {
-		newImageSlice[i] = imageSlice[i+1][1:newImageSliceSize]
+		newImageSlice[i] = imageSlice[i+1][1 : 1+newImageSliceSize]
 	}
 
 	inPlaceImageRotate(newImageSlice)
