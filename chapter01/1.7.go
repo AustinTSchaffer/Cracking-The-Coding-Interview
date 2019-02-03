@@ -48,11 +48,10 @@ func (i IntPixel) A() byte { return i.getBytes()[3] }
 
 /*
 
-ImageRotate rotates a 2D slice of Pixels clockwise by 90 degrees. The input is
-not changed and can have any dimensions.
+TransposeImage performs a matrix transpose on an image.
 
 */
-func ImageRotate(image [][]Pixel) [][]Pixel {
+func TransposeImage(image [][]Pixel) [][]Pixel {
 	rows := len(image)
 	columns := len(image[0])
 
@@ -68,6 +67,16 @@ func ImageRotate(image [][]Pixel) [][]Pixel {
 	}
 
 	return rotatedImage
+}
+
+/*
+
+ImageRotate rotates a 2D slice of Pixels clockwise by 90 degrees. The input is
+not changed and can have any dimensions.
+
+*/
+func ImageRotate(image [][]Pixel) [][]Pixel {
+	panic("Not Implemented")
 }
 
 /*
@@ -201,4 +210,13 @@ func main1dot7() {
 	fmt.Println("New Matrix Rotate:", newImage2)
 	InPlaceImageRotate(image2)
 	fmt.Println("In Place Rotate:", image2)
+
+	image3 := [][]Pixel{
+		{IntPixel{Value: 1}, IntPixel{Value: 2}, IntPixel{Value: 3}},
+		{IntPixel{Value: 4}, IntPixel{Value: 5}, IntPixel{Value: 6}},
+	}
+
+	fmt.Println("Original:", image3)
+	newImage3 := ImageRotate(image3)
+	fmt.Println("New Matrix Rotate:", newImage3)
 }
