@@ -165,3 +165,40 @@ func inPlaceImageRotate(imageSlice [][]Pixel) {
 
 	inPlaceImageRotate(newImageSlice)
 }
+
+/*
+
+main1dot7 runs an example usage of the functions and types that exist in this
+file.
+
+*/
+func main1dot7() {
+	// Wow this is awful. Definitely should be using openCV for image creation and manipulation.
+
+	image1 := [][]Pixel{
+		{IntPixel{Value: 1}, IntPixel{Value: 2}, IntPixel{Value: 3}, IntPixel{Value: 4}},
+		{IntPixel{Value: 5}, IntPixel{Value: 6}, IntPixel{Value: 7}, IntPixel{Value: 8}},
+		{IntPixel{Value: 9}, IntPixel{Value: 10}, IntPixel{Value: 11}, IntPixel{Value: 12}},
+		{IntPixel{Value: 13}, IntPixel{Value: 14}, IntPixel{Value: 15}, IntPixel{Value: 16}},
+	}
+
+	fmt.Println("Original:", image1)
+	newImage1 := ImageRotate(image1)
+	fmt.Println("New Matrix Rotate:", newImage1)
+	InPlaceImageRotate(image1)
+	fmt.Println("In Place Rotate:", image1)
+
+	image2 := [][]Pixel{
+		{IntPixel{Value: 1}, IntPixel{Value: 2}, IntPixel{Value: 3}, IntPixel{Value: 4}, IntPixel{Value: 5}},
+		{IntPixel{Value: 6}, IntPixel{Value: 7}, IntPixel{Value: 8}, IntPixel{Value: 9}, IntPixel{Value: 10}},
+		{IntPixel{Value: 11}, IntPixel{Value: 12}, IntPixel{Value: 13}, IntPixel{Value: 14}, IntPixel{Value: 15}},
+		{IntPixel{Value: 16}, IntPixel{Value: 17}, IntPixel{Value: 18}, IntPixel{Value: 19}, IntPixel{Value: 20}},
+		{IntPixel{Value: 21}, IntPixel{Value: 22}, IntPixel{Value: 23}, IntPixel{Value: 24}, IntPixel{Value: 25}},
+	}
+
+	fmt.Println("Original:", image2)
+	newImage2 := ImageRotate(image2)
+	fmt.Println("New Matrix Rotate:", newImage2)
+	InPlaceImageRotate(image2)
+	fmt.Println("In Place Rotate:", image2)
+}
