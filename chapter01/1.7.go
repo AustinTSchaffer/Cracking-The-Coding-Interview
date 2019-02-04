@@ -48,7 +48,8 @@ func (i IntPixel) A() byte { return i.getBytes()[3] }
 
 /*
 
-TransposeImage performs a matrix transpose on an image.
+TransposeImage performs a matrix transpose on an image. This was accidentally
+implemented while attempting to implement the ImageRotate function.
 
 */
 func TransposeImage(image [][]Pixel) [][]Pixel {
@@ -76,7 +77,21 @@ not changed and can have any dimensions.
 
 */
 func ImageRotate(image [][]Pixel) [][]Pixel {
-	panic("Not Implemented")
+	rows := len(image)
+	columns := len(image[0])
+
+	rotatedImage := make([][]Pixel, columns)
+	for i := 0; i < columns; i++ {
+		rotatedImage[i] = make([]Pixel, rows)
+	}
+
+	for i, row := range image {
+		for j, pixel := range row {
+			rotatedImage[j][rows-1-i] = pixel
+		}
+	}
+
+	return rotatedImage
 }
 
 /*
